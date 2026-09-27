@@ -1,0 +1,38 @@
+{
+  "name": "releasecheck-server",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "db:migrate": "npx prisma migrate deploy",
+    "db:push": "npx prisma db push",
+    "db:seed": "node prisma/seed.js",
+    "db:studio": "npx prisma studio",
+    "generate": "npx prisma generate",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --forceExit --detectOpenHandles"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "ReleaseCheck API - GraphQL backend for release checklist management",
+  "dependencies": {
+    "@apollo/server": "^4.11.0",
+    "@prisma/client": "^6.19.3",
+    "body-parser": "^2.3.0",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.4",
+    "express": "^4.21.0",
+    "graphql": "^16.14.2"
+  },
+  "devDependencies": {
+    "@jest/globals": "^30.5.2",
+    "jest": "^30.5.2",
+    "nodemon": "^3.1.14",
+    "prisma": "^6.19.3"
+  }
+}
