@@ -66,7 +66,7 @@ export default function ReleaseForm() {
     setSaving(true);
     try {
       if (isNew) {
-        const result = await createRelease({
+        await createRelease({
           variables: {
             input: {
               name: name.trim(),
@@ -76,8 +76,6 @@ export default function ReleaseForm() {
             },
           },
         });
-        // Navigate to the newly created release
-        navigate(`/release/${result.data.createRelease.id}`, { replace: true });
       } else {
         await updateRelease({
           variables: {
@@ -90,6 +88,7 @@ export default function ReleaseForm() {
           },
         });
       }
+      navigate('/', { replace: true });
     } catch (err) {
       console.error('Save failed:', err);
       alert('Failed to save release. Please try again.');
